@@ -2,20 +2,17 @@ import type { Dayjs } from 'dayjs';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { IconButton } from 'react-native-paper';
-import { Text } from './AppText';
+import { Text } from './ui/Text';
 import { AppModal } from './AppModal';
 
 const MIN_YEAR = 1900;
 const MAX_YEAR = 2099;
-const MONTHS = Array.from({ length: 12 }, (_, index) => index);
 
 export function MonthPicker({
-  visible,
   value,
   onSelect,
   onClose,
 }: {
-  visible: boolean;
   value: Dayjs;
   onSelect: (month: Dayjs) => void;
   onClose: () => void;
@@ -34,7 +31,7 @@ export function MonthPicker({
   };
 
   return (
-    <AppModal visible={visible} title="选择月份" onClose={onClose}>
+    <AppModal visible title="选择月份" onClose={onClose}>
       <View className="mb-4 flex-row items-center justify-between rounded-xl border border-line bg-card px-1">
             <IconButton
               icon="chevron-double-left"
@@ -66,7 +63,7 @@ export function MonthPicker({
           </View>
 
           <View className="flex-row flex-wrap gap-2">
-            {MONTHS.map((month) => {
+            {Array.from({ length: 12 }, (_, month) => month).map((month) => {
               const active =
                 value.year() === year && value.month() === month;
 

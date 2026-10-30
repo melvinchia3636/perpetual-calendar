@@ -41,13 +41,13 @@ Expo mobile app plus a fully offline Chinese almanac engine.
 NativeWind 5 is currently a **release candidate**. It requires:
 
 - `react-native-css@3.1.0-rc.0` (exact RC pair)
-- `lightningcss@1.30.1` — pinned in `overrides`; newer versions break the
+- `lightningcss@1.30.1` - pinned in `overrides`; newer versions break the
   compiler with a `failed to deserialize … Specifier` error.
 
 ## Run (development build)
 
 Expo Go is **not** used. The app runs as a development build so the native
-runtime matches React Native 0.88 — this also avoids the `expo-asset`
+runtime matches React Native 0.88 - this also avoids the `expo-asset`
 `getAssetByID` error seen in Expo Go.
 
 ```bash
@@ -112,5 +112,3 @@ design.
 - `src/App.tsx` imports `./global.css` once, then wraps the app in
   `SafeAreaProvider` + `PaperProvider`.
 - Paper icons come from `@expo/vector-icons` (MaterialCommunityIcons).
-- `src/lib/index.ts` is the Bun CLI and is excluded from the app `tsconfig`
-  because it uses the `Bun` global.

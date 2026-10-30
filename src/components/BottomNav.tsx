@@ -3,13 +3,12 @@ import { styled } from 'nativewind';
 import type { ComponentProps } from 'react';
 import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Text } from './AppText';
+import { useApp, type Tab } from '@/contexts/AppContext';
+import { Text } from './ui/Text';
 
 const SafeArea = styled(SafeAreaView, { className: 'style' });
 
 export const NAV_HEIGHT = 72;
-
-export type Tab = 'calendar' | 'search';
 
 type IconName = ComponentProps<typeof MaterialCommunityIcons>['name'];
 
@@ -18,13 +17,9 @@ const TABS: { key: Tab; icon: IconName; label: string }[] = [
   { key: 'search', icon: 'calendar-star', label: '良辰吉日查询' },
 ];
 
-export function BottomNav({
-  tab,
-  onChange,
-}: {
-  tab: Tab;
-  onChange: (tab: Tab) => void;
-}) {
+export function BottomNav() {
+  const { tab, changeTab } = useApp();
+
   return (
     <SafeArea edges={['bottom']} className="border-t border-line bg-sheet">
       <View className="h-[72px] flex-row">
@@ -34,7 +29,7 @@ export function BottomNav({
           return (
             <Pressable
               key={item.key}
-              onPress={() => onChange(item.key)}
+              onPress={() => changeTab(item.key)}
               className="flex-1 items-center justify-center"
             >
               {active && (

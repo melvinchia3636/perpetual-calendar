@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { Text } from '../AppText';
+import { Text } from './Text';
 
 export function Row({
   label,

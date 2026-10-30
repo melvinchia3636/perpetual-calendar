@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
+import { View } from 'react-native';
+import { Text } from './Text';
 import { TONES, type Tone } from './tones';
-import { StyledChip } from './styled-chip';
 
 export function Pill({
   children,
@@ -12,18 +13,10 @@ export function Pill({
   const t = TONES[tone];
 
   return (
-    <StyledChip
-      compact
-      mode="outlined"
-      style={{ backgroundColor: t.bg, borderColor: t.border }}
-      textStyle={{
-        color: t.text,
-        fontSize: 12,
-        lineHeight: 16,
-        fontWeight: '600',
-      }}
-    >
-      {children}
-    </StyledChip>
+    <View className={`rounded-full border px-2.5 py-0.5 ${t.container}`}>
+      <Text className={`text-[12px] font-semibold leading-4 ${t.text}`}>
+        {children}
+      </Text>
+    </View>
   );
 }

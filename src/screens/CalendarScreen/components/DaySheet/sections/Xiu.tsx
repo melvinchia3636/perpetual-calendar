@@ -1,9 +1,10 @@
-import type { Almanac } from '../../../../../lib/core';
-import { XIU_GROUPS, xiuGroup } from '../../../../../lib/zodiac';
-import { Text } from '../../../../../components/AppText';
-import { Section, SectionTitle } from '../../../../../components/ui';
+import { XIU_GROUPS, xiuGroup } from '@/lib/constants/zodiac';
+import { useDaySheet } from '../contexts/DaySheetContext';
+import { Text } from '@/components/ui';
+import { Section, SectionTitle } from '@/components/ui';
 
-export function Xiu({ almanac }: { almanac: Almanac }) {
+export function Xiu() {
+  const { almanac } = useDaySheet();
   const group = xiuGroup(almanac.xiu.xiu);
 
   return (

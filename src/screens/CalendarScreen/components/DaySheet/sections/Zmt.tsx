@@ -1,7 +1,8 @@
 import { View } from 'react-native';
-import type { Almanac } from '../../../../../lib/core';
-import { Text } from '../../../../../components/AppText';
-import { SectionTitle } from '../../../../../components/ui';
+import type { Almanac } from '@/lib/core';
+import { useDaySheet } from '../contexts/DaySheetContext';
+import { Text } from '@/components/ui';
+import { SectionTitle } from '@/components/ui';
 
 const ZMT_FIELDS: {
   label: string;
@@ -23,7 +24,8 @@ const ZMT_FIELDS: {
   { label: '几人几锄', key: 'renChu' },
 ];
 
-export function Zmt({ almanac }: { almanac: Almanac }) {
+export function Zmt() {
+  const { almanac } = useDaySheet();
   return (
     <>
       <SectionTitle

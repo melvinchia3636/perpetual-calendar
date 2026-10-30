@@ -1,9 +1,10 @@
-import type { Almanac } from '../../../../../lib/core';
-import { HourCard } from '../../../../../components/HourCard';
-import { Text } from '../../../../../components/AppText';
-import { SectionTitle } from '../../../../../components/ui';
+import { HourCard } from '@/components/HourCard';
+import { useDaySheet } from '../contexts/DaySheetContext';
+import { Text } from '@/components/ui';
+import { SectionTitle } from '@/components/ui';
 
-export function Hours({ almanac }: { almanac: Almanac }) {
+export function Hours() {
+  const { almanac } = useDaySheet();
   const luckyHours = almanac.timeList.filter(
     (slot) => slot.tianshenLuck === '吉',
   ).length;

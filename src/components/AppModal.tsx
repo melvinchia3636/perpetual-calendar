@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Modal, Pressable, View } from 'react-native';
-import { Text } from './AppText';
+import { Text } from './ui/Text';
 
 export function AppModal({
   visible,

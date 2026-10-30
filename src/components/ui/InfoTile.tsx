@@ -1,4 +1,4 @@
-import { Text } from '../AppText';
+import { Text } from './Text';
 import { Section } from './Section';
 
 export function InfoTile({

@@ -1,40 +1,45 @@
 import { View } from 'react-native';
-import type { Almanac } from '../../../../../lib/core';
-import { InfoTile, SectionTitle } from '../../../../../components/ui';
+import type { Almanac } from '@/lib/core';
+import { useDaySheet } from '../contexts/DaySheetContext';
+import { InfoTile, SectionTitle } from '@/components/ui';
 
-export function Directions({ almanac }: { almanac: Almanac }) {
+const DIRECTION_ROWS: {
+  label: string;
+  key: keyof Almanac['jishen'];
+  tone: string;
+}[][] = [
+  [
+    { label: '喜神', key: 'dayXi', tone: 'text-brand' },
+    { label: '福神', key: 'dayFu', tone: 'text-gold' },
+    { label: '财神', key: 'dayCai', tone: 'text-success' },
+  ],
+  [
+    { label: '阳贵神', key: 'dayYangGui', tone: 'text-info' },
+    { label: '阴贵神', key: 'dayYinGui', tone: 'text-violet' },
+  ],
+];
+
+export function Directions() {
+  const { almanac } = useDaySheet();
+
   return (
     <>
       <SectionTitle>吉神财神吉方</SectionTitle>
-      <View className="flex-row gap-2.5">
-        <InfoTile
-          label="喜神"
-          value={almanac.jishen.dayXi}
-          valueClassName="text-brand"
-        />
-        <InfoTile
-          label="福神"
-          value={almanac.jishen.dayFu}
-          valueClassName="text-gold"
-        />
-        <InfoTile
-          label="财神"
-          value={almanac.jishen.dayCai}
-          valueClassName="text-success"
-        />
-      </View>
-      <View className="mt-2.5 flex-row gap-2.5">
-        <InfoTile
-          label="阳贵神"
-          value={almanac.jishen.dayYangGui}
-          valueClassName="text-info"
-        />
-        <InfoTile
-          label="阴贵神"
-          value={almanac.jishen.dayYinGui}
-          valueClassName="text-violet"
-        />
-      </View>
+      {DIRECTION_ROWS.map((row, index) => (
+        <View
+          key={index}
+          className={`flex-row gap-2.5 ${index > 0 ? 'mt-2.5' : ''}`}
+        >
+          {row.map(({ label, key, tone }) => (
+            <InfoTile
+              key={label}
+              label={label}
+              value={almanac.jishen[key]}
+              valueClassName={tone}
+            />
+          ))}
+        </View>
+      ))}
     </>
   );
 }

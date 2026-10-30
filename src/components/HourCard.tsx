@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { View } from 'react-native';
 import type { TimeSlot } from '../lib/core';
-import { Text } from './AppText';
+import { Text } from './ui/Text';
 import { Pill, Section } from './ui';
 
 type HourInfo = Pick<

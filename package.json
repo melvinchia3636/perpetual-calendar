@@ -42,7 +42,6 @@
     "android": "expo run:android",
     "prebuild": "expo prebuild --platform android",
     "typecheck": "tsc --noEmit",
-    "almanac": "bun run src/lib/index.ts",
     "postinstall": "bun run scripts/patch-react-native-css.mjs",
     "start:clear": "expo start --dev-client --clear"
   },

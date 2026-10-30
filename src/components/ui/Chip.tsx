@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
+import { View } from 'react-native';
+import { Text } from './Text';
 import { TONES, type Tone } from './tones';
-import { StyledChip } from './styled-chip';
 
 export function Chip({
   children,
@@ -12,13 +13,10 @@ export function Chip({
   const t = TONES[tone];
 
   return (
-    <StyledChip
-      compact
-      mode="outlined"
-      style={{ backgroundColor: t.bg, borderColor: t.border }}
-      textStyle={{ color: t.text, fontSize: 13, lineHeight: 17 }}
-    >
-      {children}
-    </StyledChip>
+    <View className={`rounded-lg border px-2.5 py-1 ${t.container}`}>
+      <Text className={`text-[13px] leading-[17px] ${t.text}`}>
+        {children}
+      </Text>
+    </View>
   );
 }

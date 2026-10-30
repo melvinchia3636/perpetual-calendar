@@ -1,10 +1,13 @@
 import type { ReactNode } from 'react';
-import { Surface } from './Surface';
+import { styled } from 'nativewind';
+import { Surface } from 'react-native-paper';
+
+const StyledSurface = styled(Surface, { className: 'style' });
 
 const SECTION_TONES = {
-  default: 'border-[#2B2C30] bg-card',
-  green: 'border-[#1F5A3C] bg-[#0E2A1E]',
-  red: 'border-[#5A1E22] bg-[#2A1214]',
+  default: 'border-line bg-card',
+  green: 'border-success-line bg-success-bg',
+  red: 'border-brand-line bg-brand-bg',
 };
 
 export function Section({
@@ -19,13 +22,13 @@ export function Section({
   className?: string;
 }) {
   return (
-    <Surface
+    <StyledSurface
       elevation={0}
       className={`rounded-2xl border ${SECTION_TONES[tone]} ${
         padded ? 'p-4' : ''
       } ${className}`}
     >
       {children}
-    </Surface>
+    </StyledSurface>
   );
 }
