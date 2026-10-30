@@ -40,9 +40,7 @@ export default function App() {
           <AppProvider>
             <View className="flex-1 bg-app">
               <StatusBar style="light" />
-              <SafeAreaView edges={["top"]} className="bg-brand">
-                <View className="h-3" />
-              </SafeAreaView>
+              <SafeAreaView edges={["top"]} className="bg-brand" />
               <View className="flex-1">
                 <CalendarScreen />
                 <SearchTabScreen />

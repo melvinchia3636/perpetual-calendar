@@ -4,7 +4,7 @@ import { Pressable, View } from "react-native";
 import type { DayMatch } from "@/lib/core";
 import { Text } from "@/components/ui";
 import { Section } from "@/components/ui";
-import { useApp } from '@/contexts/AppContext';
+import { useApp } from "@/contexts/AppContext";
 
 export const DayEntry = memo(function DayEntry({ item }: { item: DayMatch }) {
   const { pickDate } = useApp();
@@ -13,7 +13,7 @@ export const DayEntry = memo(function DayEntry({ item }: { item: DayMatch }) {
     ["星神", item.tianshen],
     ["十二神", `${item.zhixing}日`],
     ["廿八宿", item.xiu],
-    ["相冲生肖", item.chongShengXiao || "—"],
+    ["相冲生肖", item.chongShengXiao || "-"],
   ] as const;
 
   return (
