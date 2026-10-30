@@ -23,7 +23,7 @@ export function Header({ details }: { details: DayDetails }) {
           <Text className="text-[22px] font-bold text-ink">
             {year}年{month}月{day}日
           </Text>
-          <View className="rounded-md bg-brand-strong px-2 py-0.5">
+          <View className="rounded-md bg-brand px-2 py-0.5">
             <Text className="text-[12px] font-medium text-white">
               {almanac.weekIndex}
             </Text>

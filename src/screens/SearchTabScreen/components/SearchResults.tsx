@@ -195,7 +195,7 @@ export function SearchResults({
         data={visible}
         keyExtractor={(item) => item.date}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 40 }}
+        contentContainerStyle={{ paddingTop: 12, paddingBottom: 40 }}
         onEndReached={() => {
           if (hasMore) setVisibleCount((current) => current + PAGE_SIZE);
         }}
