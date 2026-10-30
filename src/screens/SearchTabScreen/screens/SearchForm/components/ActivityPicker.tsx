@@ -1,6 +1,5 @@
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useMemo } from "react";
-import { Pressable, SectionList } from "react-native";
+import { Pressable, ScrollView, View } from "react-native";
 import { Text } from "@/components/ui";
 import { AppModal } from "@/components/AppModal";
 import { ACTIVITY_GROUPS, ActivityGroup } from "@/lib/constants/activities";
@@ -34,52 +33,48 @@ export function ActivityPicker({
       onClose={onClose}
       contentClassName="h-[78%]"
     >
-      <SectionList
+      <ScrollView
         className="flex-1"
-        sections={sections}
-        keyExtractor={(item) => item}
-        stickySectionHeadersEnabled={false}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 16 }}
-        initialNumToRender={16}
-        maxToRenderPerBatch={16}
-        windowSize={7}
-        renderSectionHeader={({ section }) => (
-          <Text className="mb-1 mt-4 text-[13px] font-semibold text-muted">
-            {section.title}
-          </Text>
-        )}
-        renderItem={({ item }) => {
-          const selected = value === item;
+      >
+        {sections.map((section) => (
+          <View key={section.title} className="mt-4">
+            <Text className="mb-2 text-[13px] font-semibold text-muted">
+              {section.title}
+            </Text>
+            <View className="flex-row flex-wrap gap-2">
+              {section.data.map((item) => {
+                const selected = value === item;
 
-          return (
-            <Pressable
-              onPress={() => {
-                onSelect(item);
-                onClose();
-              }}
-              className={`flex-row items-center justify-between rounded-lg px-2 py-3 ${
-                selected ? "bg-brand-bg" : ""
-              }`}
-            >
-              <Text
-                className={`text-[15px] ${
-                  selected ? "text-brand" : "text-ink"
-                }`}
-              >
-                {item}
-              </Text>
-              {selected && (
-                <MaterialCommunityIcons
-                  name="check"
-                  size={18}
-                  color="#E5484D"
-                />
-              )}
-            </Pressable>
-          );
-        }}
-      />
+                return (
+                  <Pressable
+                    key={item}
+                    onPress={() => {
+                      onSelect(item);
+                      onClose();
+                    }}
+                    className={`w-[31.5%] items-center justify-center rounded-lg border px-2 py-2.5 ${
+                      selected
+                        ? "border-brand bg-brand-bg"
+                        : "border-line bg-card"
+                    }`}
+                  >
+                    <Text
+                      numberOfLines={1}
+                      className={`text-[14px] ${
+                        selected ? "text-brand" : "text-ink"
+                      }`}
+                    >
+                      {item}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
+        ))}
+      </ScrollView>
     </AppModal>
   );
 }
