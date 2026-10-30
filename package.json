@@ -1,6 +1,6 @@
 {
   "name": "perpetual-calendar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.ts",
   "dependencies": {
     "@expo-google-fonts/noto-sans-sc": "^0.4.4",
