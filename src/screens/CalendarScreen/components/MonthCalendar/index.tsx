@@ -31,7 +31,7 @@ function MonthCalendarContent() {
           <MonthPager />
           {!ready && (
             <View
-              className="absolute inset-0 items-center justify-center bg-app"
+              className="absolute bottom-0 left-0 right-0 top-12 items-center justify-center bg-app"
               pointerEvents="none"
             >
               <Loading className="flex-1" />
