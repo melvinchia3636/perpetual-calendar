@@ -1,0 +1,43 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+@theme {
+  --color-app: #08080a;
+  --color-sheet: #1a1a1e;
+  --color-card: #232327;
+  --color-card-alt: #2a2a2e;
+  --color-line: #34343a;
+  --color-ink: #f2f2f3;
+  --color-muted: #9a9aa2;
+  --color-faint: #6b6b72;
+  --color-handle: #4a4a50;
+
+  --color-brand: #e5484d;
+  --color-brand-strong: #c62828;
+  --color-brand-bg: #2a1214;
+  --color-brand-line: #5a1e22;
+
+  --color-success: #3dd68c;
+  --color-success-bg: #0e2a1e;
+  --color-success-line: #1f5a3c;
+
+  --color-gold: #f5b942;
+  --color-gold-bg: #2a2110;
+  --color-gold-line: #5a4a1e;
+
+  --color-orange: #f08c46;
+
+  --color-info: #59a8ff;
+  --color-info-bg: #10202f;
+  --color-info-line: #1f3d5c;
+
+  --color-violet: #b57bff;
+  --color-violet-bg: #1e1429;
+  --color-violet-line: #3d2a56;
+
+  --font-regular: NotoSansSC_400Regular;
+  --font-heavy: NotoSansSC_700Bold;
+}
